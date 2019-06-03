@@ -1,6 +1,9 @@
 import json
 import argparse
+from pprint import pprint
 from pathlib import Path
+
+from slack import Users, Channels
 
 
 def get_arguments():
@@ -13,6 +16,7 @@ def get_arguments():
 if __name__ == '__main__':
     args = get_arguments()
 
-    with open(Path(args.json_path), "r", encoding="utf-8") as f:
-        log = json.load(f)
-        print(log)
+    # channnels = Channels(path=args.json_path)
+    users = Users(path=args.json_path)
+    # pprint(channnels.parse())
+    pprint(users.parse())
