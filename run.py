@@ -25,8 +25,10 @@ if __name__ == '__main__':
     channels = Channels(path=str(slack_log_path.joinpath("channels.json")))
     users = Users(path=str(slack_log_path.joinpath("users.json")))
 
-    channels.parse().to_csv(str(channels_path))
-    users.parse().to_csv(str(users_path))
+    channels.parse()
+    channels.data_frame.to_csv(str(channels_path))
+    users.parse()
+    users.data_frame.to_csv(str(users_path))
 
     channel_and_ids = channels.get_channels()
 
