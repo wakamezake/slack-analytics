@@ -21,7 +21,7 @@ if __name__ == '__main__':
     users_path = output_path.joinpath("users.csv")
     messages_path = output_path.joinpath("messages.csv")
 
-    slack_log_path = Path(args.json_path)
+    slack_log_path = Path(args.slack_log_path)
     channels = Channels(path=str(slack_log_path.joinpath("channels.json")))
     users = Users(path=str(slack_log_path.joinpath("users.json")))
 
