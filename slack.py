@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+from pandas.io.json import json_normalize
 from pathlib import Path
 from datetime import datetime
 
@@ -12,7 +13,7 @@ class Log:
     def parse(self, separator="_"):
         with open(self.path, "r", encoding="utf-8") as f:
             log = json.load(f)
-        df = pd.io.json.json_normalize(log, sep=separator)
+        df = json_normalize(log, sep=separator)
         self.data_frame = df
 
 
@@ -24,7 +25,7 @@ class Users(Log):
         with open(self.path, "r", encoding="utf-8") as f:
             log = json.load(f)
 
-        df = pd.io.json.json_normalize(log, sep=separator)
+        df = json_normalize(log, sep=separator)
         df['display_name_custom'] = ""
 
         for index, row in df.iterrows():
