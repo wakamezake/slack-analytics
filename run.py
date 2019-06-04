@@ -1,6 +1,4 @@
-import json
 import argparse
-from pprint import pprint
 from pathlib import Path
 
 from slack import Users, Channels, Messages
