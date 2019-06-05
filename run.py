@@ -26,12 +26,12 @@ if __name__ == '__main__':
     users = Users(path=str(slack_log_path.joinpath("users.json")))
 
     channels.parse()
-    channels.data_frame.to_csv(str(channels_path))
+    channels.data_frame.to_csv(str(channels_path), index=False)
     users.parse()
-    users.data_frame.to_csv(str(users_path))
+    users.data_frame.to_csv(str(users_path), index=False)
 
     channel_and_ids = channels.get_channels()
 
     messages = Messages(path=str(slack_log_path))
     messages.p(channel_and_ids)
-    messages.data_frame.to_csv(str(messages_path))
+    messages.data_frame.to_csv(str(messages_path), index=False)
